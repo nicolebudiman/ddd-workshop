@@ -1,7 +1,4 @@
-import com.thoughtworks.dddworkshop.domains.Cart;
-import com.thoughtworks.dddworkshop.domains.Item;
-import com.thoughtworks.dddworkshop.domains.Price;
-import com.thoughtworks.dddworkshop.domains.Product;
+import com.thoughtworks.dddworkshop.domains.*;
 import org.junit.Test;
 
 import java.util.Currency;
@@ -68,5 +65,17 @@ public class CartTest {
         assertEquals(item1.getProduct().getPrice().getCurrency(), Currency.getInstance("USD"));
 
         cart1.add(item1);
+    }
+
+    @Test
+    public void testCheckOutCartCreatesAnOrderWithProducts() {
+        Cart cart1 = new Cart();
+
+        Item item1 = new Item(new Product("Ipad", new Price(Currency.getInstance("USD"), 1000)), 1);
+        cart1.add(item1);
+        Order order = cart1.checkout();
+
+        assertEquals(item1.getProduct().getName(), order.getItemList().get(0).getProduct().getName());
+        assertEquals(item1.getQuantity(), order.getItemList().get(0).getQuantity());
     }
 }

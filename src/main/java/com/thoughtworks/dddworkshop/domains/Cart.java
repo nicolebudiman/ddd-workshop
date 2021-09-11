@@ -9,6 +9,7 @@ import static java.lang.StrictMath.abs;
 public class Cart {
     private UUID id;
     private List<Item> items = new ArrayList<Item>();
+    private boolean isCheckedOut = false;
 
     public Cart() {
         this.id = UUID.randomUUID();
@@ -46,5 +47,10 @@ public class Cart {
         });
         // publishEvent(remove); //Break SOLID
         return removedItems.get(0);
+    }
+
+    public Order checkout() {
+        this.isCheckedOut = true;
+        return new Order(items);
     }
 }
