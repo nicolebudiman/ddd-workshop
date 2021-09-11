@@ -1,16 +1,7 @@
 package com.thoughtworks.dddworkshop.domains;
 
 public class Item {
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
     private Product product;
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     private int quantity;
 
     public Item(Product product, int quantity) {
@@ -24,5 +15,9 @@ public class Item {
 
     public int getQuantity() {
         return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

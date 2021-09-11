@@ -11,7 +11,7 @@ public class CompetitorBasedPriceCalculatorTest {
     @Test
     public void shouldPriceProduct10PercentLowerThanCompetitor() {
         String productName = "iPad Pro";
-        Product product = new Product(productName, CompetitorBasedPriceCalculator.calculatePrice(productName));
+        Product product = new Product(productName, CompetitorBasedPriceCalculator.calculatePrice(productName), 1);
 
         assertEquals(900, product.getPrice().getAmount());
     }

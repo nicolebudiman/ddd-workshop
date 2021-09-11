@@ -37,3 +37,6 @@ When Customer’s Address is updated, update her all Bank Accounts address as we
 - Address has one attribute called City
 - Address is Value Object
 - customer updateAddress(address)
+
+###Problem #11 - Calculate Total amount for the Order.  put shipping cost as per weight
+Total cost = cost of all products in order + (weightIngrams of each product *.01)

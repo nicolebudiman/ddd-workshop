@@ -13,7 +13,7 @@ public class CartTest {
     public void testAddProductToCart() {
         Cart cart = new Cart();
         String iPadPro = "IPad Pro";
-        Product product = new Product(iPadPro, new Price(Currency.getInstance("USD"), 1000));
+        Product product = new Product(iPadPro, new Price(Currency.getInstance("USD"), 1000), 1);
         cart.add(product, 1);
         assertEquals(cart.getItems().get(0).getProduct().getName(), iPadPro);
         assertEquals(cart.getItems().get(0).getQuantity(), 1);
@@ -23,7 +23,7 @@ public class CartTest {
     public void testRemoveProductsToCart() {
         Cart cart = new Cart();
         String iPadPro = "IPad Pro";
-        Product product = new Product(iPadPro, new Price(Currency.getInstance("USD"), 1000));
+        Product product = new Product(iPadPro, new Price(Currency.getInstance("USD"), 1000), 1);
         cart.add(product, 5);
 
         cart.remove(product, 1);
@@ -34,7 +34,7 @@ public class CartTest {
     public void testGetProductionWasRemovedFromCart() {
         Cart cart = new Cart();
         String iPadPro = "IPad Pro";
-        Product product = new Product(iPadPro, new Price(Currency.getInstance("USD"), 1000));
+        Product product = new Product(iPadPro, new Price(Currency.getInstance("USD"), 1000), 1);
         cart.add(product, 5);
 //        PublicEvent(cart.remove())
         assertEquals(iPadPro, cart.remove(product, 1).getProduct().getName());
@@ -45,8 +45,8 @@ public class CartTest {
         Cart cart1 = new Cart();
         Cart cart2 = new Cart();
 
-        Item item1 = new Item(new Product("Ipad", new Price(Currency.getInstance("USD"), 1000)), 1);
-        Item item2 = new Item(new Product("Ipad", new Price(Currency.getInstance("USD"), 1000)), 1);
+        Item item1 = new Item(new Product("Ipad", new Price(Currency.getInstance("USD"), 1000), 1), 1);
+        Item item2 = new Item(new Product("Ipad", new Price(Currency.getInstance("USD"), 1000), 1), 1);
 
         cart1.add(item1);
         cart2.add(item2);
@@ -59,7 +59,7 @@ public class CartTest {
     public void testReturnPriceOfAProduct() {
         Cart cart1 = new Cart();
 
-        Item item1 = new Item(new Product("Ipad", new Price(Currency.getInstance("USD"), 1000)), 1);
+        Item item1 = new Item(new Product("Ipad", new Price(Currency.getInstance("USD"), 1000), 1), 1);
 
         assertEquals(item1.getProduct().getPrice().getAmount(), 1000);
         assertEquals(item1.getProduct().getPrice().getCurrency(), Currency.getInstance("USD"));
@@ -71,7 +71,7 @@ public class CartTest {
     public void testCheckOutCartCreatesAnOrderWithProducts() {
         Cart cart1 = new Cart();
 
-        Item item1 = new Item(new Product("Ipad", new Price(Currency.getInstance("USD"), 1000)), 1);
+        Item item1 = new Item(new Product("Ipad", new Price(Currency.getInstance("USD"), 1000), 1), 1);
         cart1.add(item1);
         Order order = cart1.checkout();
 
