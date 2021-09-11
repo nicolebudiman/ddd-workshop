@@ -15,7 +15,14 @@ public class Customer extends Entity {
         return address;
     }
 
+    public List<Account> getAccountList() {
+        return accountList;
+    }
+
     public void updateAddress(Address newAddress) {
         this.address = newAddress;
+        this.accountList.forEach(account -> {
+            account.updateAddress(newAddress);
+        });
     }
 }

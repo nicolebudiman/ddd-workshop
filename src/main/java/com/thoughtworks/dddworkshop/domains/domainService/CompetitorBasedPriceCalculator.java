@@ -1,4 +1,6 @@
-package com.thoughtworks.dddworkshop.domains;
+package com.thoughtworks.dddworkshop.domains.domainService;
+
+import com.thoughtworks.dddworkshop.domains.Price;
 
 import java.util.Currency;
 import java.util.HashMap;

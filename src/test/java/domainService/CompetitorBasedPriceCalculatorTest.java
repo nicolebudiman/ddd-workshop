@@ -1,4 +1,6 @@
-import com.thoughtworks.dddworkshop.domains.CompetitorBasedPriceCalculator;
+package domainService;
+
+import com.thoughtworks.dddworkshop.domains.domainService.CompetitorBasedPriceCalculator;
 import com.thoughtworks.dddworkshop.domains.Product;
 import org.junit.Test;
 
